@@ -1,0 +1,84 @@
+/* include stylesheet for truYum */
+.body{
+	overflow:hidden;
+}
+
+/* User-defined Classes*/
+.item-price{
+	color: #ba120a;
+	font-size: 18px;
+	float: right;
+}
+.float-right{
+	float: right;
+}
+.grey-text-small{
+	font-size:15px;
+	color: #808080;
+	width: 50%;
+	margin:0px;
+}
+.material-icons.time{
+	color:#808080;
+	font-size:18px;
+}
+.float-left{
+	float:left;
+}
+.btn.add-to-cart{
+	background-color: #ed7d2c;
+	color: #ffffff;
+	float: right;
+}
+
+.image-holder{
+	height: auto;
+	width: 100%;
+	background-image: url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+/* Bootstrap classes */
+.navbar {
+	background-color: #ed7d2c;
+}
+.material-icons{
+	vertical-align: middle;
+}
+.material-icons.delivery-icon{
+	vertical-align: middle;
+	color: #004080;
+}
+
+.material-icons.md-36 {
+	font-size: 36px;
+	color: #ffffff;
+	vertical-align: middle;
+}
+
+.material-icons.md-36:hover {
+	color: #ffffff;
+}
+
+a.menu-link, a.menu-link:link, a.menu-link:active, a.menu-link:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.card-img-top.img{
+	object-fit:contain;
+	height: auto;
+	max-width:100%;
+}
+.cart-text{
+	color: #808080;
+	font-size: 18px;
+}
+.invalid-feedback{
+  display: block !important;
+  width: 100% !important;
+  margin-top: 0.25rem !important;
+  font-size: 80% !important;
+  color: #dc3545 !important;
+}
