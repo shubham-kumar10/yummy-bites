@@ -1,0 +1,56 @@
+<div class="card mt-3">
+  <img class="card-img-top" alt="product_image" src={{foodItem.imageUrl}} />
+  <div class="card-body">
+    <h5 class="card-title">
+      {{foodItem.name}}
+      <span class="item-price">{{foodItem.price|currency:'INR'}}</span>
+    </h5>
+
+    <div>
+      <div *ngIf="isAdmin">
+        <span class="badge badge-success delivery_badge" *ngIf="foodItem.active">Active</span>
+        <span class="badge badge-danger delivery_badge" *ngIf="!foodItem.active">Inactive</span>
+      </div>
+      {{foodItem.category}}
+      <span class="float-right" *ngIf="foodItem.freeDelivery">
+        <i class="material-icons delivery-icon">local_shipping</i>
+        <span class="badge badge-primary free-icon">FREE</span>
+      </span>
+    </div>
+
+
+    <!-- Alert Box -->
+    <div *ngIf="this._menuItem.addedToCart && this._menuItem.cartAddedId==foodItem.id">
+      <div class=" alert alert-success alert-dismissible fade show alert-msg" role="alert">
+        Item added to cart successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between" *ngIf="isAdmin == false">
+      <button type="button" class="btn add-to-cart" (click)="addToCartClicked.emit(foodItem.id)">
+        <span><i class="material-icons">add_shopping_cart</i></span>
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between" *ngIf="isAdmin">
+      <div class="d-flex flex-column">
+        <span><i class="material-icons mr-auto time">access_time</i>
+          <span class="text-muted">Launch</span></span>
+        <p>{{foodItem.dateOfLaunch | date}}</p>
+      </div>
+
+      <div class="d-flex flex-column">
+        <button [routerLink]="['/edit-food-item',foodItem.id]" type="button" class="btn add-to-cart mt-2 ml-auto">
+          <i class="material-icons">edit</i>Edit
+        </button>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
