@@ -1,0 +1,78 @@
+<form [formGroup]="itemForm" (submit)="onSubmit()">
+  <div class="form-row">
+    <h2 class="col-lg-12">Edit Menu Item</h2>
+    <div class=" col-lg-12 alert  alert-success" *ngIf="editdone"> Menu Details Modified Successfully. </div>
+    <div class="col-lg-12 mb-2">
+      <label for="title">Item</label>
+      <input type="text" class="form-control" id="itemName" formControlName="itemName">
+      <div class="text-danger" *ngIf="itemName.errors?.maxlength || itemName.errors?.minlength">Item Name must
+        be between 2 to 10 characters only</div>
+      <div class="text-danger" *ngIf="itemName.invalid && itemName.errors.required"> Name is required</div>
+    </div>
+
+    <input type="hidden" class="form-control" id="itemURL" formControlName="itemURL">
+    <div class="text-danger" *ngIf="itemURL.invalid && itemURL.errors.required"> Image URL is required</div>
+
+
+    <div class="col-lg-3 col-md-12">
+      <label for="title">Price</label>
+      <input type="number" class="form-control" id="price" formControlName="price">
+      <div class="text-danger" *ngIf="price.invalid && price.errors.required"> Price is required</div>
+    </div>
+
+    <!-- Date -->
+    <div class="col-lg-3">
+      <label for="dateOfLaunch">Date&nbsp;Of&nbsp;Launch</label>
+      <input type="date" class="form-control" id="dateOfLaunch" formControlName="dateOfLaunch">
+      <div class="text-danger" *ngIf="dateOfLaunch.invalid && dateOfLaunch.errors.required"> Date of Launch is
+        required</div>
+    </div>
+
+    <!-- Date End-->
+
+    <div class="col-lg-3">
+      <label for="category">Category</label>
+      <select class="form-control" id="category" formControlName="category">
+        <option></option>
+        <option *ngFor="let category of categories" [value]="category" selected="category==foodItem.category">
+          {{category}}</option>
+      </select>
+      <div class="text-danger" *ngIf="category.invalid && category.errors.required"> Category is required</div>
+    </div>
+
+
+
+    <div class="col-lg-3 form-group">
+      <label for="active">Active</label><br />
+
+      <div class="form-check p-0">
+        <label class="radio-inline mt-2 mb-0">
+          <input type="radio" class="radio-inline mt-3" [value]=true id="yes" formControlName="active">
+          <label for="yes" class="pl-2"> Yes </label>
+
+          <input type="radio" class="radio-inline mt-3 ml-3" formControlName="active" [value]=false value="no" id="no">
+          <label for="no" class="pl-2"> No</label>
+          <div class="text-danger" *ngIf="active.invalid && active.errors.required"> Active Status is required</div>
+        </label>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-lg-3">
+      <label class="form-check p-0 mt-3">
+        <input type="checkbox" class="checkbox-inline" formControlName="freeDelivery" id="freeDelivery">&nbsp;Free
+        Delivery
+      </label>
+    </div>
+
+  </div>
+
+  <br />
+  <div class="row">
+    <div class="col-lg-1">
+      <button type="submit" value="Save" class="btn add-to-cart float-left">Save</button>
+    </div>
+  </div>
+</form>
