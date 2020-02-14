@@ -1,0 +1,36 @@
+<div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-sm navbar-dark text-light navbar_top">
+        <h2>
+            <i class="material-icons md-36"> restaurant_menu </i> truYum
+        </h2>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav  ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="clickOnAddCart()" routerLink="search-bar/">Menu Items</a>
+                </li>
+                <li class="nav-item active" *ngIf="loggedIn() && !this.foodService.isAdmin">
+                    <a class="nav-link" routerLink="cart/">Cart</a>
+                </li>
+                <li class="nav-item active" *ngIf="loggedIn()">
+                    <i class="material-icons other_icon">person </i> {{this.authService.username}}
+                </li>
+                <li class="nav-item active" *ngIf="loggedIn()" (click)="this.authService.logout()">
+                    <a class="nav-link" routerLink="search-bar/" (click)="exit()">Logout</a>
+                </li>
+                <li class="nav-item active" (click)="clickOnAddCart()" *ngIf="!loggedIn()">
+                    <a class="nav-link" routerLink="login/">Login</a>
+                </li>
+                <li class="nav-item active" (click)="clickOnAddCart()" *ngIf="!loggedIn()">
+                    <a class="nav-link" routerLink="signup/">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+    <footer class="col-lg-12 navbar navbar-expand-sm navbar-light text-light fixed-bottom">
+        <p>Copyright 2019</p>
+    </footer>
+</div>
