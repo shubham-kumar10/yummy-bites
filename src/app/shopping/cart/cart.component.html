@@ -1,0 +1,30 @@
+<div class="container d-flex justify-content-center">
+  <div class="col-md-5 mt-5">
+    <h2>Cart</h2>
+    <div class="alert alert-success" *ngIf="remove">
+      Item Removed from Cart Successfully
+    </div>
+
+    <div class="alert alert-danger" *ngIf="empty">
+      Cart is Empty. Please use 'Add To Cart' option in Menu Items list.
+    </div>
+    <div class="list-group" *ngIf="!empty">
+      <div class="list-group-item" *ngFor="let foodItem of cart.cartItems">
+        <div class="d-flex justify-content-between">
+          <div class="cart-text text-muted cart-text">{{foodItem.name}}</div>
+          <div class="text-danger">{{foodItem.price | currency:'INR'}}</div>
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <a (click)="onDeleteCart(foodItem.id)"><i class="material-icons float-right text-muted">delete_forever</i></a>
+        </div>
+      </div>
+      <div class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <div class="cart-text">Total</div>
+          <div class="text-danger">{{cart.total | currency:'INR'}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
