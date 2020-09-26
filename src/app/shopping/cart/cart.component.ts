@@ -11,28 +11,30 @@ export class CartComponent implements OnInit {
 
   cart: Cart;
 
-  empty: boolean = false;
-  remove: boolean = false;
+  empty = false;
+  remove = false;
   constructor(private cartService: CartServiceService) { }
 
   ngOnInit() {
     this.cartService.getAllCartItems().subscribe(data => {
       this.cart = data;
-      if (this.cart.total == 0)
+      if (this.cart.total === 0) {
         this.empty = true;
-      console.log(this.cart)
+      }
+      console.log(this.cart);
     });
   }
 
   onDeleteCart(id: number) {
-    console.log("Inside delete Cart item")
+    console.log('Inside delete Cart item');
     this.cartService.deleteCartItem(id).subscribe();
     this.remove = true;
     this.cartService.getAllCartItems().subscribe(data => {
       this.cart = data;
-      if (this.cart.total == 0)
+      if (this.cart.total === 0) {
         this.empty = true;
-      console.log(this.cart)
+      }
+      console.log(this.cart);
     });
   }
 }
