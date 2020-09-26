@@ -11,7 +11,7 @@
     <div class="list-group" *ngIf="!empty">
       <div class="list-group-item" *ngFor="let foodItem of cart.cartItems">
         <div class="d-flex justify-content-between">
-          <div class="cart-text text-muted cart-text">{{foodItem.name}}</div>
+          <div class="cart-text text-muted cart-text">{{foodItem.title}}</div>
           <div class="text-danger">{{foodItem.price | currency:'INR'}}</div>
         </div>
         <div class="d-flex flex-row-reverse">

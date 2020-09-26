@@ -1,7 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { foodItem } from './item-info/foodItem';
 import { Subject } from 'rxjs';
-import { CartServiceService } from '../shopping/cart-service.service';
 import { Router } from '@angular/router';
 import { MenuItemService } from '../services/menu-item.service';
 

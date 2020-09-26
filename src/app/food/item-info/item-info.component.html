@@ -1,13 +1,14 @@
 <div class="card mt-3">
-  <img class="card-img-top" alt="product_image" src={{foodItem.imageUrl}} />
-  <div class="card-body">
+  <div class="row">
+    <img class="col-12 card-img-top" alt="product_image" src={{foodItem.imageUrl}} />
+  </div>
 
-    <div class="row">
-      <h5 class="card-title col-xs-6">
-        {{foodItem.title}}
-        <span class="col-xs-6 item-price text-right">{{foodItem.price|currency:'INR'}}</span>
-      </h5>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      {{foodItem.title}}
+      <span class="item-price text-right">{{foodItem.price | currency:'INR'}}</span>
+    </h5>
+
 
 
     <div>
