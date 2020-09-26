@@ -1,10 +1,14 @@
 <div class="card mt-3">
   <img class="card-img-top" alt="product_image" src={{foodItem.imageUrl}} />
   <div class="card-body">
-    <h5 class="card-title">
-      {{foodItem.name}}
-      <span class="item-price">{{foodItem.price|currency:'INR'}}</span>
-    </h5>
+
+    <div class="row">
+      <h5 class="card-title col-xs-6">
+        {{foodItem.title}}
+        <span class="col-xs-6 item-price text-right">{{foodItem.price|currency:'INR'}}</span>
+      </h5>
+    </div>
+
 
     <div>
       <div *ngIf="isAdmin">

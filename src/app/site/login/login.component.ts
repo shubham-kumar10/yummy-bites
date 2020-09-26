@@ -14,9 +14,14 @@ import { UserServiceService } from '../user-service.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup
+  loginForm: FormGroup;
 
-  constructor(private formBuild: FormBuilder, private authService: AuthenticationService, private router: Router, private foodService: MenuItemService, private _userService: UserServiceService) { } //Remember authservice was AuthServiceService
+  constructor(
+    private formBuild: FormBuilder,
+    private authService: AuthenticationService,
+    private router: Router,
+    private foodService: MenuItemService,
+    private _userService: UserServiceService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuild.group({

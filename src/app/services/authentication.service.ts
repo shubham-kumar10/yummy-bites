@@ -19,7 +19,7 @@ export class AuthenticationService {
   accessToken: string; // JWT token
   redirectUrl = '/';
   loggedIn: boolean = false;
-  private authenticationApiUrl = environment.baseUrl + "auth-service/";
+  private authenticationApiUrl = environment.baseUrl;
   private token: string;
   username: string;
   userId: number = 0;
@@ -31,15 +31,15 @@ export class AuthenticationService {
   }
 
   public setUserId() {
-    let sum: number = 0;
     for (let i = 0; i < this.username.length; i++) {
       this.userId = this.username.charCodeAt(i) + this.userId;
     }
   }
+
   authenticate(user: string, password: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Basic ' + btoa(user + ':' + password));
-    return this._httpClient.get(this.authenticationApiUrl + "authenticate", { headers })
+    return this._httpClient.get(this.authenticationApiUrl + 'authenticate', { headers });
   }
 
   logout() {

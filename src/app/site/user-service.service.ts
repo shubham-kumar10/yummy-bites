@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 
 export class UserServiceService {
-  url: string = environment.baseUrl + "auth-service/";
+  url: string = environment.baseUrl;
 
   constructor(private router: Router, private _httpClient: HttpClient) { }
 

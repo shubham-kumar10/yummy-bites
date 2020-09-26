@@ -14,7 +14,7 @@ export class CartServiceService {
   @Output() cartUpdated = new EventEmitter();
 
   cartItems: Cart = { foodItemList: [], total: 0 };
-  url: string = environment.baseUrl + "menuitem-service/";
+  url: string = environment.baseUrl;
   constructor(private _httpClient: HttpClient, private _authService: AuthenticationService) { }
 
   getCart(): Cart {
@@ -25,17 +25,17 @@ export class CartServiceService {
     for (let i = 0; i < this.cartItems.foodItemList.length; i++) {
       this.cartItems.total += this.cartItems.foodItemList[i].price;
     }
-    this.cartUpdated.emit;
+    this.cartUpdated.emit();
   }
 
   public getAllCartItems(): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this._authService.getToken());
-    return this._httpClient.get<Cart>(this.url + "carts/" + this._authService.username, { headers })
+    return this._httpClient.get<Cart>(this.url + 'carts/' + this._authService.username, { headers });
   }
   public deleteCartItem(menuItemId: number): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this._authService.getToken());
-    return this._httpClient.delete(this.url + "carts/" + this._authService.username + "/" + menuItemId, { headers })
+    return this._httpClient.delete(this.url + 'carts/' + this._authService.username + '/' + menuItemId, { headers });
   }
 }
