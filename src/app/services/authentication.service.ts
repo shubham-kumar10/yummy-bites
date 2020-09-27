@@ -15,14 +15,14 @@ export class AuthenticationService {
   constructor(private _httpClient: HttpClient, private userService: UserServiceService, public router: Router) { }
 
   loggedInUser = { loggedOut: true };
-  validCredentials: boolean = true;
+  validCredentials = true;
   accessToken: string; // JWT token
   redirectUrl = '/';
-  loggedIn: boolean = false;
+  loggedIn = false;
   private authenticationApiUrl = environment.baseUrl;
   private token: string;
   username: string;
-  userId: number = 0;
+  userId = 0;
   public setToken(token: string) {
     this.token = token;
   }

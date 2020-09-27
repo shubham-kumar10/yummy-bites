@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { foodItem } from './foodItem';
 import { MenuItemService } from '../../services/menu-item.service';
+import { FoodItem } from './foodItem';
 
 @Component({
   selector: 'app-item-info',
@@ -9,7 +9,7 @@ import { MenuItemService } from '../../services/menu-item.service';
 })
 export class ItemInfoComponent implements OnInit {
 
-  @Input() foodItem: foodItem;
+  @Input() foodItem: FoodItem;
   @Output() addToCartClicked = new EventEmitter();
   isAdmin: boolean;
   cartAddedId: number;
@@ -21,7 +21,7 @@ export class ItemInfoComponent implements OnInit {
   }
   displayAddToCart(id: number) {
     this.cartAddedId = id;
-    console.log(this.cartAddedId)
+    console.log(this.cartAddedId);
   }
 
 }

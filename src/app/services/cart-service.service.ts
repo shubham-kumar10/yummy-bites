@@ -1,10 +1,10 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Cart } from './cart/cart';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { UserServiceService } from '../site/user-service.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { environment } from '../../environments/environment';
+import { Cart } from '../cart/cart';
 
 @Injectable({
   providedIn: 'root'

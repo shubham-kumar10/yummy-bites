@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { foodItem } from '../item-info/foodItem';
-import { FoodServiceService } from '../food-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItemService } from '../../services/menu-item.service';
+import { FoodItem } from '../item-info/foodItem';
 
 @Component({
   selector: 'app-item-edit',
@@ -12,22 +11,26 @@ import { MenuItemService } from '../../services/menu-item.service';
 })
 export class ItemEditComponent implements OnInit {
 
-  categories = ["Starter", "Main Course", "Dessert", "Drinks"];
+  categories = ['Starter', 'Main Course', 'Dessert', 'Drinks'];
   itemForm: FormGroup;
-  foodItem: foodItem;
-  saved: boolean = false;
-  editdone: boolean = false;
-  constructor(private formBuild: FormBuilder, private _menuItem: MenuItemService, private route: ActivatedRoute, private router: Router) { }
+  foodItem: FoodItem;
+  saved = false;
+  editdone = false;
+  constructor(
+    private formBuild: FormBuilder,
+    private _menuItem: MenuItemService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     const foodItemId = this.route.snapshot.paramMap.get('id');
     this._menuItem.getMenuItem(+foodItemId).subscribe(data => {
-      data.dateOfLaunch = new Date(data.dateOfLaunch)
+      data.dateOfLaunch = new Date(data.dateOfLaunch);
       this.foodItem = data;
       console.log(this.foodItem);
       this.foodItem.dateOfLaunch.setDate(this.foodItem.dateOfLaunch.getDate());
       this.itemForm = this.formBuild.group({
-        itemName: [this.foodItem.name, [
+        itemName: [this.foodItem.title, [
           Validators.required,
           Validators.minLength(2),
           Validators.maxLength(20)
@@ -48,7 +51,7 @@ export class ItemEditComponent implements OnInit {
           Validators.required
         ]],
         freeDelivery: [this.foodItem.freeDelivery]
-      })
+      });
     });
 
     this.itemForm = this.formBuild.group({
@@ -73,7 +76,7 @@ export class ItemEditComponent implements OnInit {
         Validators.required
       ]],
       freeDelivery: [null]
-    })
+    });
   }
 
   get itemName() {
@@ -98,17 +101,23 @@ export class ItemEditComponent implements OnInit {
     return this.itemForm.get('freeDelivery');
   }
   onSubmit() {
-    let newItem: foodItem = {
-      id: this.foodItem.id, name: this.itemForm.value["itemName"], price: +this.itemForm.value["price"], active: this.itemForm.value["active"],
-      dateOfLaunch: new Date(this.itemForm.value["dateOfLaunch"]), category: this.itemForm.value["category"], freeDelivery: this.itemForm.value["freeDelivery"],
-      imageUrl: this.itemForm.value["itemURL"]
-    }
-    //this.foodservice.updateFoodItem(newItem);
+    const newItem: FoodItem = {
+      id: this.foodItem.id,
+      title: this.itemForm.value['itemName'],
+      price: +this.itemForm.value['price'],
+      active: this.itemForm.value['active'],
+      dateOfLaunch: new Date(this.itemForm.value['dateOfLaunch']),
+      category: this.itemForm.value['category'],
+      freeDelivery: this.itemForm.value['freeDelivery'],
+      imageUrl: this.itemForm.value['itemURL']
+    };
+
+    // this.foodservice.updateFoodItem(newItem);
     this._menuItem.save(newItem).subscribe();
     this.editdone = true;
-    //this._menuItem.save(newItem);
+    // this._menuItem.save(newItem);
     console.log(newItem);
-    //this.router.navigate(['search-bar'])
+    // this.router.navigate(['search-bar'])
   }
 
   onSaveClicked() {

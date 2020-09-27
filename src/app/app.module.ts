@@ -7,12 +7,12 @@ import { ItemInfoComponent } from './food/item-info/item-info.component';
 import { MenuComponent } from './food/menu/menu.component';
 import { SearchComponent } from './food/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CartComponent } from './shopping/cart/cart.component';
 import { ItemEditComponent } from './food/item-edit/item-edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './site/signup/signup.component';
 import { LoginComponent } from './site/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 
 const appRoutes: Routes = [
 
