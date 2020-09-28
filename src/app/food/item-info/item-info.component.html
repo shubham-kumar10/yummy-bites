@@ -37,17 +37,18 @@
       </button>
     </div>
 
-    <div class="d-flex flex-row justify-content-between" *ngIf="isAdmin">
-      <div class="d-flex flex-column">
+    <div>
+      <div *ngIf="isAdmin">
         <span><i class="material-icons mr-auto time">access_time</i>
-          <span class="text-muted">Launch</span></span>
-        <p>{{foodItem.dateOfLaunch | date}}</p>
-      </div>
+          <span class="text-muted">Launch</span>
+          <p>{{foodItem.dateOfLaunch | date}}</p>
 
-      <div class="d-flex flex-column">
-        <button [routerLink]="['/edit-food-item',foodItem.id]" type="button" class="btn add-to-cart mt-2 ml-auto">
-          <i class="material-icons">edit</i>Edit
-        </button>
+          <div class="float-right">
+            <button [routerLink]="['/edit-food-item',foodItem.id]" type="button" class="btn add-to-cart mt-2 ml-auto">
+              <i class="material-icons">edit</i>Edit
+            </button>
+          </div>
+        </span>
       </div>
     </div>
   </div>

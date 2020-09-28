@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8083/'
+  baseUrl: 'https://yummy-bites-backend.herokuapp.com/'
+  // baseUrl: 'http://localhost:8083/'
 };
 
 /*
