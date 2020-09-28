@@ -13,6 +13,7 @@ import { SignupComponent } from './site/signup/signup.component';
 import { LoginComponent } from './site/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { FoodComponent } from './food/food.component';
 
 const appRoutes: Routes = [
 
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     ItemEditComponent,
     SignupComponent,
     LoginComponent,
+    FoodComponent
   ],
   imports: [
     BrowserModule,
