@@ -14,7 +14,7 @@ export class ItemInfoComponent implements OnInit {
   isAdmin: boolean;
   cartAddedId: number;
 
-  constructor(private _menuItem: MenuItemService) { }
+  constructor(public _menuItem: MenuItemService) { }
 
   ngOnInit() {
     this.isAdmin = this._menuItem.isAdmin;

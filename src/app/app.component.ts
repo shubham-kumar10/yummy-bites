@@ -12,23 +12,25 @@ import { MenuItemService } from './services/menu-item.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  constructor(
+    private authService: AuthenticationService,
+    public router: Router,
+    public foodService: MenuItemService) {
+  }
+  title = 'truYum';
+  isLoggedIn = false;
 
   ngOnInit(): void {
     this.loggedIn();
     this.router.navigate(['search-bar']);
   }
-  constructor(private authService: AuthenticationService, public router: Router, private foodService: MenuItemService) {
-  }
-  title = 'truYum';
-  isLoggedIn: boolean = false;
 
 
   loggedIn(): boolean {
     if (this.authService.loggedIn) {
       this.isLoggedIn = true;
-      return true
-    }
-    else {
+      return true;
+    } else {
       this.isLoggedIn = false;
       return false;
     }
