@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.cartService.getAllCartItems().subscribe(data => {
       this.cart = data;
-      if (this.cart.total === 0) {
+      if (!this.cart.total) {
         this.empty = true;
       }
       console.log(this.cart);
@@ -27,14 +27,15 @@ export class CartComponent implements OnInit {
 
   onDeleteCart(id: number) {
     console.log('Inside delete Cart item');
-    this.cartService.deleteCartItem(id).subscribe();
-    this.remove = true;
-    this.cartService.getAllCartItems().subscribe(data => {
-      this.cart = data;
-      if (this.cart.total === 0) {
-        this.empty = true;
+    this.cartService.deleteCartItem(id).subscribe(
+      data => {
+        this.cart = data;
+        if (!this.cart.total) {
+          this.empty = true;
+        }
+        console.log(this.cart);
       }
-      console.log(this.cart);
-    });
+    );
+    this.remove = true;
   }
 }

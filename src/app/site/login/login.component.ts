@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
         this.authService.setToken(data.token);
         this.error = 'Logged In successfully';
         this.authService.username = this.getUsername();
-        this.authService.loggedIn = true;
+        this.authService.firstname = data.firstname;
         this.authService.loggedIn = true;
         this.authService.validCredentials = true;
         this.authService.setUserId();

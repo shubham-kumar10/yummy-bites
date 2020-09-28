@@ -13,7 +13,7 @@ export class CartServiceService {
 
   @Output() cartUpdated = new EventEmitter();
 
-  cartItems: Cart = { foodItemList: [], total: 0 };
+  cartItems: Cart = { cartItems: [], total: 0 };
   url: string = environment.baseUrl;
   constructor(private _httpClient: HttpClient, private _authService: AuthenticationService) { }
 
@@ -22,13 +22,13 @@ export class CartServiceService {
   }
   calculateTotal() {
     this.cartItems.total = 0;
-    for (let i = 0; i < this.cartItems.foodItemList.length; i++) {
-      this.cartItems.total += this.cartItems.foodItemList[i].price;
+    for (let i = 0; i < this.cartItems.cartItems.length; i++) {
+      this.cartItems.total += this.cartItems.cartItems[i].price;
     }
     this.cartUpdated.emit();
   }
 
-  public getAllCartItems(): Observable<any> {
+  public getAllCartItems(): Observable<Cart> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this._authService.getToken());
     return this._httpClient.get<Cart>(this.url + 'carts/' + this._authService.username, { headers });

@@ -22,6 +22,7 @@ export class AuthenticationService {
   private authenticationApiUrl = environment.baseUrl;
   private token: string;
   username: string;
+  firstname: string;
   userId = 0;
   public setToken(token: string) {
     this.token = token;

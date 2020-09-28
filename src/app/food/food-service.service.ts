@@ -53,7 +53,7 @@ export class FoodServiceService {
   //   if (this.isLoggedIn) {
   //     for (let foodItem of this.items) {
   //       if (foodItem.id == foodItemId) {
-  //         this.cartService.getCart().foodItemList.push(foodItem);
+  //         this.cartService.getCart().cartItems.push(foodItem);
   //         this.cartService.calculateTotal();
   //         this.addedToCart = true;
   //         this.cartAddedId = foodItemId;
@@ -66,9 +66,9 @@ export class FoodServiceService {
   //   }
   // }
   // removeFromCart(foodItemId: number) {
-  //   for (let i = 0; i < this.cartService.getCart().foodItemList.length; i++) {
-  //     if (this.cartService.getCart().foodItemList[i].id == foodItemId) {
-  //       this.cartService.getCart().foodItemList.splice(i, 1);
+  //   for (let i = 0; i < this.cartService.getCart().cartItems.length; i++) {
+  //     if (this.cartService.getCart().cartItems[i].id == foodItemId) {
+  //       this.cartService.getCart().cartItems.splice(i, 1);
   //       this.cartService.calculateTotal();
   //       break;
   //     }
