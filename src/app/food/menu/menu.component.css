@@ -32,3 +32,17 @@
 	background-color: darkorange;
 	color: white;
 }
+
+.add-card {
+	color: #a0a0a0;
+	min-height: 23.6rem;
+}
+
+.material-icons.md-40{
+	font-size: 15rem;
+	padding-top: 1.5rem;
+}
+
+.add-card-title{
+	font-size: 30px;
+}
