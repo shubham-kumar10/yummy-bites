@@ -35,6 +35,7 @@ export class MenuComponent implements OnInit {
       });
 
     });
+    this.isAdmin = this._menuItem.isAdmin;
     console.log(this.items);
   }
 
