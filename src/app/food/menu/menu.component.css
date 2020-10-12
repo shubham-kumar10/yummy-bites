@@ -36,6 +36,11 @@
 .add-card {
 	color: #a0a0a0;
 	min-height: 23.6rem;
+	cursor: pointer;
+}
+
+.add-card :hover{
+	opacity: 0.5;
 }
 
 .material-icons.md-40{

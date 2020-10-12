@@ -25,15 +25,10 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._menuItem.getAllMenuItems().subscribe(data => {
+    this._menuItem.getAllMenuItems().subscribe((data: FoodItem[]) => {
       this.items = data;
       console.log('data ->');
       console.log(this.items);
-      this._menuItem.getSubject().subscribe((data) => {
-        this.items = data;
-
-      });
-
     });
     this.isAdmin = this._menuItem.isAdmin;
     console.log(this.items);
