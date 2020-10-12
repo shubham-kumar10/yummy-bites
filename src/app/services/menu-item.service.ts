@@ -19,7 +19,7 @@ export class MenuItemService {
   url = environment.baseUrl;
   constructor(private _httpClient: HttpClient, private _authService: AuthenticationService) { }
 
-  public getAllMenuItems(): Observable<any> {
+  public getAllMenuItems(): Observable<FoodItem[]> {
     let headers = new HttpHeaders();
     console.log(this._authService.getToken() + ' token');
     headers = headers.set('Authorization', 'Bearer ' + this._authService.getToken());
