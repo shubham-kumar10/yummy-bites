@@ -44,7 +44,7 @@
           <p>{{foodItem.dateOfLaunch | date}}</p>
 
           <div class="float-right">
-            <button [routerLink]="['/edit-food-item',foodItem.id]" type="button" class="btn add-to-cart mt-2 ml-auto">
+            <button type="button" class="btn add-to-cart mt-2 ml-auto" (click)="navigateToEdit(foodItem.id)">
               <i class="material-icons">edit</i>Edit
             </button>
           </div>

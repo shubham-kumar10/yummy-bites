@@ -43,6 +43,9 @@ export class MenuComponent implements OnInit {
       this._menuItem.clickedOnAdd = true;
       this.router.navigate(['login']);
     }
+  }
 
+  onAddClicked() {
+    this.router.navigate(['edit-food-item']);
   }
 }

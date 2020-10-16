@@ -7,10 +7,9 @@ import { FoodItem } from '../item-info/foodItem';
 @Component({
   selector: 'app-item-edit',
   templateUrl: './item-edit.component.html',
-  styleUrls: ['./item-edit.component.css']
+  styleUrls: ['./item-edit.component.css'],
 })
 export class ItemEditComponent implements OnInit {
-
   categories = ['Starter', 'Main Course', 'Dessert', 'Drinks'];
   itemForm: FormGroup;
   foodItem: FoodItem;
@@ -20,86 +19,91 @@ export class ItemEditComponent implements OnInit {
     private formBuild: FormBuilder,
     private _menuItem: MenuItemService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    const foodItemId = this.route.snapshot.paramMap.get('id');
-    this._menuItem.getMenuItem(+foodItemId).subscribe(data => {
-      data.dateOfLaunch = new Date(data.dateOfLaunch);
-      this.foodItem = data;
-      console.log(this.foodItem);
-      this.foodItem.dateOfLaunch.setDate(this.foodItem.dateOfLaunch.getDate());
-      this.itemForm = this.formBuild.group({
-        itemName: [this.foodItem.title, [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(20)
-        ]],
-        itemURL: [this.foodItem.imageUrl, [
-          Validators.required
-        ]],
-        price: [this.foodItem.price, [
-          Validators.required
-        ]],
-        dateOfLaunch: [this.foodItem.dateOfLaunch.toISOString().substring(0, 10), [
-          Validators.required
-        ]],
-        category: [this.foodItem.category, [
-          Validators.required
-        ]],
-        active: [this.foodItem.active, [
-          Validators.required
-        ]],
-        freeDelivery: [this.foodItem.freeDelivery]
-      });
-    });
-
-    this.itemForm = this.formBuild.group({
-      itemName: [null, [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(20)
-      ]],
-      itemURL: [null, [
-        Validators.required
-      ]],
-      price: [null, [
-        Validators.required
-      ]],
-      dateOfLaunch: [null, [
-        Validators.required
-      ]],
-      category: [null, [
-        Validators.required
-      ]],
-      active: [null, [
-        Validators.required
-      ]],
-      freeDelivery: [null]
-    });
+    this.generateForm();
+    const foodItemId = this.getFoodId();
+    if (foodItemId) {
+      this.subscribeMenuItems(foodItemId);
+    }
   }
 
   get itemName() {
     return this.itemForm.get('itemName');
   }
+
   get itemURL() {
     return this.itemForm.get('itemURL');
   }
+
   get price() {
     return this.itemForm.get('price');
   }
+
   get dateOfLaunch() {
     return this.itemForm.get('dateOfLaunch');
   }
+
   get category() {
     return this.itemForm.get('category');
   }
+
   get active() {
     return this.itemForm.get('active');
   }
+
+  subscribeMenuItems(foodItemId: number): void {
+    this._menuItem.getMenuItem(foodItemId).subscribe((data) => {
+      data.dateOfLaunch = new Date(data.dateOfLaunch);
+      this.foodItem = data;
+      console.log(this.foodItem);
+      this.foodItem.dateOfLaunch.setDate(this.foodItem.dateOfLaunch.getDate());
+      this.patchFormData();
+    });
+  }
+
   get freeDelivery() {
     return this.itemForm.get('freeDelivery');
   }
+
+  getFoodId(): number {
+    let foodItemId: number;
+    this.route.queryParams.subscribe((param) => {
+      foodItemId = +param['id'];
+    });
+    return foodItemId;
+  }
+
+  generateForm(): void {
+    this.itemForm = this.formBuild.group({
+      itemName: ['', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(20),
+      ]],
+      itemURL: ['', Validators.required],
+      price: ['', Validators.required],
+      dateOfLaunch: ['', Validators.required],
+      category: ['', Validators.required],
+      active: ['', Validators.required],
+      freeDelivery: '',
+    });
+  }
+
+  patchFormData(): void {
+    this.itemForm.patchValue({
+      itemName: this.foodItem.title,
+      itemURL: this.foodItem.imageUrl,
+      price: this.foodItem.price,
+      dateOfLaunch: this.foodItem.dateOfLaunch.toISOString().substring(0, 10),
+      category: this.foodItem.category,
+      active: this.foodItem.active,
+      freeDelivery: this.foodItem.freeDelivery,
+    });
+  }
+
   onSubmit() {
     const newItem: FoodItem = {
       id: this.foodItem.id,
@@ -109,18 +113,24 @@ export class ItemEditComponent implements OnInit {
       dateOfLaunch: new Date(this.itemForm.value['dateOfLaunch']),
       category: this.itemForm.value['category'],
       freeDelivery: this.itemForm.value['freeDelivery'],
-      imageUrl: this.itemForm.value['itemURL']
+      imageUrl: this.itemForm.value['itemURL'],
     };
-
-    // this.foodservice.updateFoodItem(newItem);
-    this._menuItem.save(newItem).subscribe();
-    this.editdone = true;
-    // this._menuItem.save(newItem);
-    console.log(newItem);
-    // this.router.navigate(['search-bar'])
-  }
-
-  onSaveClicked() {
+    if (newItem.id) {
+      this._menuItem.save(newItem).subscribe();
+      this.editdone = true;
+      console.log(newItem);
+    } else {
+      this._menuItem.addMenuItem(newItem).subscribe();
+    }
 
   }
+
+  /*
+    Snippet for fake backend(food.service.ts):
+    onSaveClicked() {
+      this.foodservice.updateFoodItem(newItem);
+      this._menuItem.save(newItem);
+      this.router.navigate(['search-bar'])
+    }
+  */
 }

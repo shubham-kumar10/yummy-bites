@@ -25,8 +25,14 @@ export class MenuItemService {
     headers = headers.set('Authorization', 'Bearer ' + this._authService.getToken());
     console.log('menuitem requested');
     console.log(headers);
-
     return this._httpClient.get<FoodItem[]>(this.url + 'menu-items', { headers });
+  }
+
+  public addMenuItem(foodItem: FoodItem): Observable<FoodItem[]> {
+    let headers = new HttpHeaders();
+    console.log(this._authService.getToken() + ' token');
+    headers = headers.set('Authorization', 'Bearer ' + this._authService.getToken());
+    return this._httpClient.post<FoodItem[]>(this.url + 'menu-items', foodItem, { headers });
   }
 
   getSubject(): Subject<FoodItem[]> {
