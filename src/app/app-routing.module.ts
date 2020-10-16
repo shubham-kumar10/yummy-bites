@@ -8,7 +8,7 @@ import { SearchComponent } from './food/search/search.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
-  { path: 'edit-food-item/:id', component: ItemEditComponent, canActivate: [AuthGaurdService] },
+  { path: 'edit-food-item', component: ItemEditComponent, canActivate: [AuthGaurdService] },
   { path: 'signup', component: SignupComponent },
   { path: 'cart', component: CartComponent, canActivate: [AuthGaurdService] },
   { path: 'login', component: LoginComponent },
