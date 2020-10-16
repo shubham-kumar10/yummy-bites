@@ -15,6 +15,7 @@ export class ItemEditComponent implements OnInit {
   foodItem: FoodItem;
   saved = false;
   editdone = false;
+  itemExists = false;
   constructor(
     private formBuild: FormBuilder,
     private _menuItem: MenuItemService,
@@ -26,6 +27,7 @@ export class ItemEditComponent implements OnInit {
     this.generateForm();
     const foodItemId = this.getFoodId();
     if (foodItemId) {
+      this.itemExists = true;
       this.subscribeMenuItems(foodItemId);
     }
   }
@@ -71,7 +73,7 @@ export class ItemEditComponent implements OnInit {
   getFoodId(): number {
     let foodItemId: number;
     this.route.queryParams.subscribe((param) => {
-      foodItemId = +param['id'];
+      foodItemId = +param['id'] || 0;
     });
     return foodItemId;
   }
@@ -105,8 +107,9 @@ export class ItemEditComponent implements OnInit {
   }
 
   onSubmit() {
+    const id: number = this.itemExists && this.foodItem ? this.foodItem.id : undefined;
     const newItem: FoodItem = {
-      id: this.foodItem.id,
+      id: id,
       title: this.itemForm.value['itemName'],
       price: +this.itemForm.value['price'],
       active: this.itemForm.value['active'],
