@@ -39,9 +39,12 @@
 
     <div>
       <div *ngIf="isAdmin">
-        <span><i class="material-icons mr-auto time">access_time</i>
-          <span class="text-muted">Launch</span>
-          <p>{{foodItem.dateOfLaunch | date}}</p>
+        <span>
+          <div class=float-left>
+            <i class="material-icons mr-auto time">access_time</i>
+            <span class="text-muted">Launch</span>
+            <p>{{foodItem.dateOfLaunch | date}}</p>
+          </div>
 
           <div class="float-right">
             <button type="button" class="btn add-to-cart mt-2 ml-auto" (click)="navigateToEdit(foodItem.id)">
