@@ -2,10 +2,10 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
-import { AuthenticationService } from './services/authentication.service';
-import { MenuItemService } from './services/menu-item.service';
+import { AuthenticationService } from './shared/services/authentication.service';
+import { MenuItemService } from './shared/services/menu-item.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { FoodServiceService } from './food/food-service.service';
+import { Router } from '@angular/router';
 
 describe('Tests for AppComponent', () => {
   beforeEach(async(() => {
@@ -21,7 +21,6 @@ describe('Tests for AppComponent', () => {
         MenuItemService,
         HttpClient,
         HttpHandler,
-        FoodServiceService
       ]
     }).compileComponents();
   }));
@@ -38,7 +37,7 @@ describe('Tests for AppComponent', () => {
       const app = fixture.debugElement.componentInstance;
       expect(app.title).toEqual('truYum');
     });
-  })
+  });
 
   // it('should render title in a h2 tag', () => {
   //   const fixture = TestBed.createComponent(AppComponent);
@@ -51,12 +50,12 @@ describe('Tests for AppComponent', () => {
     loggedIn = false;
   }
 
-
   describe('Test for LoggedIn function', () => {
-    let http, user, router;
-    let auth = new MockAuthService(http, user, router), food;
-    let app = new AppComponent(auth, router, food);
-    let result;
+    // tslint:disable-next-line: prefer-const
+    let http: HttpClient, router: Router, food: MenuItemService;
+    const auth = new MockAuthService(http, router);
+    const app = new AppComponent(auth, router, food);
+    let result: boolean;
 
     // it(`should return 'null'`, inject([AuthenticationService], () => {
     //   auth.loggedIn = undefined;
@@ -75,5 +74,5 @@ describe('Tests for AppComponent', () => {
       result = app.loggedIn();
       expect(result).toBeFalsy();
     }));
-  })
+  });
 });
