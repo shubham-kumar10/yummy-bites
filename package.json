@@ -8,6 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "test:prod": "ng test --watch=false --code-coverage --browsers=ChromeHeadless",
+    "build:prod": "ng build --prod",
     "heroku-postbuild": "ng build --prod"
   },
   "engines": {
