@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "test:prod": "ng test --watch=false --code-coverage --browsers=ChromeHeadless",
     "build:prod": "ng build --prod",
-    "compodoc": "npx compodoc -p tsconfig.app.json src",
+    "compodoc": "npx compodoc -p tsconfig.app.json src -d --output docs -n --name Yummy-Bites",
     "heroku-postbuild": "ng build --prod"
   },
   "engines": {
