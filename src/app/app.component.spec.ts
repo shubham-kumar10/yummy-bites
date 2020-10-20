@@ -32,10 +32,10 @@ describe('Tests for AppComponent', () => {
       expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'truYum'`, () => {
+    it(`should have as title 'Yummy Bites'`, () => {
       const fixture = TestBed.createComponent(AppComponent);
       const app = fixture.debugElement.componentInstance;
-      expect(app.title).toEqual('truYum');
+      expect(app.title).toEqual('Yummy Bites');
     });
   });
 
@@ -43,7 +43,7 @@ describe('Tests for AppComponent', () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   fixture.detectChanges();
   //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h2').textContent).toContain('truYum');
+  //   expect(compiled.querySelector('h2').textContent).toContain('Yummy Bites');
   // });
 
   class MockAuthService extends AuthenticationService {

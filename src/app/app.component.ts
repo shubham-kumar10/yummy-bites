@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     public router: Router,
     public foodService: MenuItemService) {
   }
-  title = 'truYum';
+  title = 'Yummy Bites';
   isLoggedIn = false;
 
   ngOnInit(): void {

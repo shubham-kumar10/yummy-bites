@@ -10,6 +10,7 @@
     "e2e": "ng e2e",
     "test:prod": "ng test --watch=false --code-coverage --browsers=ChromeHeadless",
     "build:prod": "ng build --prod",
+    "compodoc": "npx compodoc -p tsconfig.app.json src",
     "heroku-postbuild": "ng build --prod"
   },
   "engines": {
@@ -39,9 +40,10 @@
     "@angular/cli": "~7.0.2",
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
-    "@types/node": "~8.9.4",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
