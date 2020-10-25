@@ -1,0 +1,879 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Yummy-Bites</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Yummy-Bites</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ItemInfoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/food/item-info/item-info.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-item-info</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./item-info.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./item-info.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_menuItem">_menuItem</a>
+                            </li>
+                            <li>
+                                <a href="#cartAddedId">cartAddedId</a>
+                            </li>
+                            <li>
+                                <a href="#isAdmin">isAdmin</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#displayAddToCart">displayAddToCart</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToEdit">navigateToEdit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#foodItem">foodItem</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addToCartClicked">addToCartClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_menuItem: <a href="../injectables/MenuItemService.html">MenuItemService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_menuItem</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MenuItemService.html" target="_self" >MenuItemService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="foodItem"></a>
+                        <b>foodItem</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/FoodItem.html" target="_self" >FoodItem</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addToCartClicked"></a>
+                        <b>addToCartClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayAddToCart"></a>
+                    <span class="name">
+                        <b>
+                            displayAddToCart
+                        </b>
+                        <a href="#displayAddToCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>displayAddToCart(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToEdit"></a>
+                    <span class="name">
+                        <b>
+                            navigateToEdit
+                        </b>
+                        <a href="#navigateToEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToEdit(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_menuItem"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _menuItem</b>
+                            <a href="#_menuItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/MenuItemService.html" target="_self" >MenuItemService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cartAddedId"></a>
+                        <span class="name">
+                            <b>
+                            cartAddedId</b>
+                            <a href="#cartAddedId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isAdmin"></a>
+                        <span class="name">
+                            <b>
+                            isAdmin</b>
+                            <a href="#isAdmin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/core/food/item-info/item-info.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { FoodItem } from &#x27;src/app/shared/models/foodItem.model&#x27;;
+import { MenuItemService } from &#x27;../../../shared/services/menu-item.service&#x27;;
+
+@Component({
+  selector: &#x27;app-item-info&#x27;,
+  templateUrl: &#x27;./item-info.component.html&#x27;,
+  styleUrls: [&#x27;./item-info.component.css&#x27;]
+})
+export class ItemInfoComponent implements OnInit {
+
+  @Input() foodItem: FoodItem;
+  @Output() addToCartClicked &#x3D; new EventEmitter();
+
+  isAdmin: boolean;
+  cartAddedId: number;
+
+  constructor(
+    public _menuItem: MenuItemService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.isAdmin &#x3D; this._menuItem.isAdmin;
+  }
+
+  displayAddToCart(id: number) {
+    this.cartAddedId &#x3D; id;
+    console.log(this.cartAddedId);
+  }
+
+  navigateToEdit(id: number) {
+    this.router.navigate([&#x27;/edit-food-item&#x27;], { queryParams: { id: id } });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card mt-3&quot;&gt;
+  &lt;img class&#x3D;&quot;card-img-top&quot; alt&#x3D;&quot;product_image&quot; src&#x3D;{{foodItem.imageUrl}} /&gt;
+
+  &lt;div class&#x3D;&quot;card-body&quot;&gt;
+    &lt;h5 class&#x3D;&quot;card-title&quot;&gt;
+      {{foodItem.title}}
+      &lt;span class&#x3D;&quot;item-price text-right&quot;&gt;{{foodItem.price | currency:&#x27;INR&#x27;}}&lt;/span&gt;
+    &lt;/h5&gt;
+
+    &lt;div&gt;
+      &lt;div *ngIf&#x3D;&quot;isAdmin&quot;&gt;
+        &lt;span class&#x3D;&quot;badge badge-success delivery_badge&quot; *ngIf&#x3D;&quot;foodItem.active&quot;&gt;Active&lt;/span&gt;
+        &lt;span class&#x3D;&quot;badge badge-danger delivery_badge&quot; *ngIf&#x3D;&quot;!foodItem.active&quot;&gt;Inactive&lt;/span&gt;
+      &lt;/div&gt;
+      {{foodItem.category}}
+      &lt;span class&#x3D;&quot;float-right&quot; *ngIf&#x3D;&quot;foodItem.freeDelivery&quot;&gt;
+        &lt;i class&#x3D;&quot;material-icons delivery-icon&quot;&gt;local_shipping&lt;/i&gt;
+        &lt;span class&#x3D;&quot;badge badge-primary free-icon&quot;&gt;FREE&lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+
+
+    &lt;!-- Alert Box --&gt;
+    &lt;div *ngIf&#x3D;&quot;this._menuItem.addedToCart &amp;&amp; this._menuItem.cartAddedId&#x3D;&#x3D;foodItem.id&quot;&gt;
+      &lt;div class&#x3D;&quot; alert alert-success alert-dismissible fade show alert-msg&quot; role&#x3D;&quot;alert&quot;&gt;
+        Item added to cart successfully.
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;alert&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;d-flex flex-row justify-content-between&quot; *ngIf&#x3D;&quot;isAdmin &#x3D;&#x3D; false&quot;&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn add-to-cart&quot; (click)&#x3D;&quot;addToCartClicked.emit(foodItem.id)&quot;&gt;
+        &lt;span&gt;&lt;i class&#x3D;&quot;material-icons&quot;&gt;add_shopping_cart&lt;/i&gt;&lt;/span&gt;
+        Add to Cart
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div&gt;
+      &lt;div *ngIf&#x3D;&quot;isAdmin&quot;&gt;
+        &lt;span&gt;
+          &lt;div class&#x3D;float-left&gt;
+            &lt;i class&#x3D;&quot;material-icons mr-auto time&quot;&gt;access_time&lt;/i&gt;
+            &lt;span class&#x3D;&quot;text-muted&quot;&gt;Launch&lt;/span&gt;
+            &lt;p&gt;{{foodItem.dateOfLaunch | date}}&lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;float-right&quot;&gt;
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn add-to-cart mt-2 ml-auto&quot; (click)&#x3D;&quot;navigateToEdit(foodItem.id)&quot;&gt;
+              &lt;i class&#x3D;&quot;material-icons&quot;&gt;edit&lt;/i&gt;Edit
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./item-info.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* include stylesheet for Yummy Bites */
+.body{
+	overflow:hidden;
+}
+
+/* User-defined Classes*/
+.item-price{
+	color: #ba120a;
+	font-size: 18px;
+	float: right;
+}
+.float-right{
+	float: right;
+}
+.grey-text-small{
+	font-size:15px;
+	color: #808080;
+	width: 50%;
+	margin:0px;
+}
+.material-icons.time{
+	color:#808080;
+	font-size:18px;
+}
+.float-left{
+	float: left;
+}
+.btn.add-to-cart{
+	background-color: #ed7d2c;
+	color: #ffffff;
+	float: right;
+}
+
+.image-holder{
+	height: auto;
+	width: 100%;
+	background-image: url(&#x27;https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1350&amp;q&#x3D;80&#x27;);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+/* Bootstrap classes */
+.navbar {
+	background-color: #ed7d2c;
+}
+.material-icons{
+	vertical-align: middle;
+}
+.material-icons.delivery-icon{
+	vertical-align: middle;
+	color: #004080;
+}
+
+.material-icons.md-36 {
+	font-size: 36px;
+	color: #ffffff;
+	vertical-align: middle;
+}
+
+.material-icons.md-36:hover {
+	color: #ffffff;
+}
+
+a.menu-link, a.menu-link:link, a.menu-link:active, a.menu-link:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.card-img-top.img{
+	object-fit:contain;
+	height: auto;
+	max-width:100%;
+}
+.cart-text{
+	color: #808080;
+	font-size: 18px;
+}
+.invalid-feedback{
+  display: block !important;
+  width: 100% !important;
+  margin-top: 0.25rem !important;
+  font-size: 80% !important;
+  color: #dc3545 !important;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card mt-3">  <img class="card-img-top" alt="product_image" src={{foodItem.imageUrl}} />  <div class="card-body">    <h5 class="card-title">      {{foodItem.title}}      <span class="item-price text-right">{{foodItem.price | currency:\'INR\'}}</span>    </h5>    <div>      <div *ngIf="isAdmin">        <span class="badge badge-success delivery_badge" *ngIf="foodItem.active">Active</span>        <span class="badge badge-danger delivery_badge" *ngIf="!foodItem.active">Inactive</span>      </div>      {{foodItem.category}}      <span class="float-right" *ngIf="foodItem.freeDelivery">        <i class="material-icons delivery-icon">local_shipping</i>        <span class="badge badge-primary free-icon">FREE</span>      </span>    </div>    <!-- Alert Box -->    <div *ngIf="this._menuItem.addedToCart && this._menuItem.cartAddedId==foodItem.id">      <div class=" alert alert-success alert-dismissible fade show alert-msg" role="alert">        Item added to cart successfully.        <button type="button" class="close" data-dismiss="alert" aria-label="Close">          <span aria-hidden="true">&times;</span>        </button>      </div>    </div>    <div class="d-flex flex-row justify-content-between" *ngIf="isAdmin == false">      <button type="button" class="btn add-to-cart" (click)="addToCartClicked.emit(foodItem.id)">        <span><i class="material-icons">add_shopping_cart</i></span>        Add to Cart      </button>    </div>    <div>      <div *ngIf="isAdmin">        <span>          <div class=float-left>            <i class="material-icons mr-auto time">access_time</i>            <span class="text-muted">Launch</span>            <p>{{foodItem.dateOfLaunch | date}}</p>          </div>          <div class="float-right">            <button type="button" class="btn add-to-cart mt-2 ml-auto" (click)="navigateToEdit(foodItem.id)">              <i class="material-icons">edit</i>Edit            </button>          </div>        </span>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'ItemEditComponent', 'selector': 'app-item-edit'},{'name': 'ItemInfoComponent', 'selector': 'app-item-info'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ItemInfoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ItemInfoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

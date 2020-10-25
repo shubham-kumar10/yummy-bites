@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from './site/auth-service.service';
 import { Router } from '@angular/router';
-import { UserServiceService } from './site/user-service.service';
-import { FoodServiceService } from './food/food-service.service';
-import { AuthenticationService } from './services/authentication.service';
-import { MenuItemService } from './services/menu-item.service';
+import { AuthenticationService } from './shared/services/authentication.service';
+import { MenuItemService } from './shared/services/menu-item.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +14,7 @@ export class AppComponent implements OnInit {
     public router: Router,
     public foodService: MenuItemService) {
   }
-  title = 'truYum';
+  title = 'Yummy Bites';
   isLoggedIn = false;
 
   ngOnInit(): void {
