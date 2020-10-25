@@ -40,11 +40,12 @@ We love your input! We want to make contributing to this project as easy and tra
     ```
 * Create a PR from our repo on Github.
 
-[PR Template](https://github.com/shubham-kumar10/yummy-bites/tree/master/.github/PULL_REQUEST_TEMPLATE)
-[Issue Template](https://github.com/shubham-kumar10/yummy-bites/tree/master/.github/ISSUE_TEMPLATE)
+* [PR Template](https://github.com/shubham-kumar10/yummy-bites/tree/master/.github/PULL_REQUEST_TEMPLATE)
+
 
 ### Additional Notes
 * Follow the issue creation format.
+* [Issue Template](https://github.com/shubham-kumar10/yummy-bites/tree/master/.github/ISSUE_TEMPLATE)
 * Code should be properly commented to ensure it's readability.
 * If you've added code that should be tested, add tests. 
 * Make 1 Issue and PR per problem. 
@@ -68,7 +69,7 @@ When you are creating an issue, make sure it's not already present. Furthermore,
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under its  [MIT License](http://choosealicense.com/licenses/mit/).
+By contributing, you agree that your contributions will be licensed under its  [Apache 2.0 License](https://github.com/shubham-kumar10/yummy-bites/blob/master/LICENSE).
 
 
 ## References
