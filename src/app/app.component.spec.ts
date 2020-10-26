@@ -51,7 +51,7 @@ describe('Tests for AppComponent', () => {
   }
 
   describe('Test for LoggedIn function', () => {
-
+    // tslint:disable-next-line: prefer-const
     let http: HttpClient, router: Router, food: MenuItemService;
     const auth = new MockAuthService(http, router);
     const app = new AppComponent(auth, router, food);
@@ -74,8 +74,5 @@ describe('Tests for AppComponent', () => {
       result = app.loggedIn();
       expect(result).toBeFalsy();
     }));
-    http = null;
-    router = null;
-    food = null;
   });
 });
