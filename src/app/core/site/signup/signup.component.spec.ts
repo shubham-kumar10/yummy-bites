@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SignupComponent } from './signup.component';
 import { ReactiveFormsModule, FormsModule, FormControl } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
+import { UserServiceService } from '../../../shared/services/user-service.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 
 
-fdescribe('SignupComponent', () => {
+describe('SignupComponent', () => {
   let component: SignupComponent;
   let fixture: ComponentFixture<SignupComponent>;
 
@@ -55,7 +55,7 @@ fdescribe('SignupComponent', () => {
       confirmPassword = component.signUpForm.controls['confirmPassword'];
 
       username.setValue('johndoe');
-      firstname.setValue('john')
+      firstname.setValue('john');
       lastname.setValue('doe');
       password.setValue('secret');
       confirmPassword.setValue('secret');
@@ -84,68 +84,68 @@ fdescribe('SignupComponent', () => {
     });
 
     it(`username value should be equal to 'johndoe'`, () => {
-      let username = component.signUpForm.controls['username'];
-      username.setValue('johndoe');
-      expect(component.username.value).toEqual('johndoe')
+      const username2 = component.signUpForm.controls['username'];
+      username2.setValue('johndoe');
+      expect(component.username.value).toEqual('johndoe');
     });
 
     it(`firstname value should be equal to 'john'`, () => {
-      let firstname = component.signUpForm.controls['firstname'];
-      firstname.setValue('john');
-      expect(component.firstname.value).toEqual('john')
+      const firstname2 = component.signUpForm.controls['firstname'];
+      firstname2.setValue('john');
+      expect(component.firstname.value).toEqual('john');
     });
 
     it(`lastname value should be equal to 'doe'`, () => {
-      let lastname = component.signUpForm.controls['lastname'];
-      lastname.setValue('doe');
-      expect(component.lastname.value).toEqual('doe')
+      const lastname2 = component.signUpForm.controls['lastname'];
+      lastname2.setValue('doe');
+      expect(component.lastname.value).toEqual('doe');
     });
 
     it(`password value should be equal to 'secret'`, () => {
-      let password = component.signUpForm.controls['password'];
-      password.setValue('secret');
-      expect(component.password.value).toEqual('secret')
+      const password2 = component.signUpForm.controls['password'];
+      password2.setValue('secret');
+      expect(component.password.value).toEqual('secret');
     });
 
     it(`confirmPassword value should be equal to 'secret'`, () => {
-      let confirmPassword = component.signUpForm.controls['confirmPassword'];
-      confirmPassword.setValue('secret');
-      expect(component.confirmPassword.value).toEqual('secret')
+      const confirmPassword2 = component.signUpForm.controls['confirmPassword'];
+      confirmPassword2.setValue('secret');
+      expect(component.confirmPassword.value).toEqual('secret');
     });
 
     it(`'matchtConfirmPassword' should return null`, () => {
-      let password = component.signUpForm.controls['password'];
-      let confirmPassword = new FormControl()
-      password.setValue('secret');
-      confirmPassword.setValue('secret');
-      let result = component.matchConfirmPassword(confirmPassword);
-      console.log(result)
-      expect(result).toBeNull()
+      const password2 = component.signUpForm.controls['password'];
+      const confirmPassword2 = new FormControl();
+      password2.setValue('secret');
+      confirmPassword2.setValue('secret');
+      const result = component.matchConfirmPassword(confirmPassword2);
+      console.log(result);
+      expect(result).toBeNull();
     });
 
     it(`'matchtConfirmPassword' should return object`, () => {
-      let password = component.signUpForm.controls['password'];
-      let confirmPassword = new FormControl()
-      password.setValue('secret');
-      confirmPassword.setValue('diferentSecret');
-      let result = component.matchConfirmPassword(confirmPassword);
-      console.log(result)
-      expect(result).toEqual({ 'nomatch': true })
+      const password2 = component.signUpForm.controls['password'];
+      const confirmPassword2 = new FormControl();
+      password2.setValue('secret');
+      confirmPassword2.setValue('diferentSecret');
+      const result = component.matchConfirmPassword(confirmPassword2);
+      console.log(result);
+      expect(result).toEqual({ 'nomatch': true });
     });
 
     it(`'isUsernameTaken' should return null`, () => {
-      let control = new FormControl()
-      let result = component.isUsernameTaken(control);
+      const control = new FormControl();
+      const result = component.isUsernameTaken(control);
       expect(result).toBeNull();
     });
 
     it(`'isUsernameTaken' should return object`, () => {
-      let control = new FormControl()
-      control.setValue('admin')
-      let result = component.isUsernameTaken(control);
-      expect(result).toEqual({ 'userNameTaken': true })
+      const control = new FormControl();
+      control.setValue('admin');
+      const result = component.isUsernameTaken(control);
+      expect(result).toEqual({ 'userNameTaken': true });
     });
 
-  })
+  });
 
 });
