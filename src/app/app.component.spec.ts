@@ -74,5 +74,8 @@ describe('Tests for AppComponent', () => {
       result = app.loggedIn();
       expect(result).toBeFalsy();
     }));
+    http = null;
+    router = null;
+    food = null;
   });
 });
