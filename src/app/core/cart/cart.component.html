@@ -25,6 +25,10 @@
         </div>
       </div>
     </div>
+    <div class="row" *ngIf="!empty">
+      <div class="col-lg-1 mt-3">
+        <button type="submit" class="btn add-to-cart float-left" (click)="navigateToShipping()">Checkout</button>
+      </div>
+    </div>
   </div>
-
 </div>

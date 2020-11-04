@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartServiceService } from 'src/app/shared/services/cart-service.service';
 import { Cart } from '../../shared/models/cart.model';
 
@@ -13,7 +14,10 @@ export class CartComponent implements OnInit {
 
   empty = false;
   remove = false;
-  constructor(private cartService: CartServiceService) { }
+  constructor(
+    private cartService: CartServiceService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.cartService.getAllCartItems().subscribe(data => {
@@ -37,5 +41,9 @@ export class CartComponent implements OnInit {
       }
     );
     this.remove = true;
+  }
+
+  navigateToShipping() {
+    this.router.navigate(['checkout']);
   }
 }
