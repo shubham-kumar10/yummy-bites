@@ -15,6 +15,8 @@ export class ItemInfoComponent implements OnInit {
 
   isAdmin: boolean;
   cartAddedId: number;
+  quantity: number = 0;
+  showQuantityBar: boolean = false;
 
   constructor(
     public _menuItem: MenuItemService,
@@ -34,4 +36,21 @@ export class ItemInfoComponent implements OnInit {
     this.router.navigate(['/edit-food-item'], { queryParams: { id: id } });
   }
 
+  addToCartButtonClicked() {
+    this.showQuantityBar = true;
+  }
+
+  addToCart() {
+    this.showQuantityBar = false;
+    this.addToCartClicked.emit(this.foodItem.id);
+  }
+
+  addQuantity() {
+    this.quantity = this.quantity + 1;
+  }
+
+  removeQuantity() {
+    if (this.quantity >= 0)
+      this.quantity = this.quantity - 1;
+  }
 }
